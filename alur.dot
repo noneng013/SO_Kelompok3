@@ -1,0 +1,27 @@
+digraph G {
+  rankdir=LR; nodesep=0.35; ranksep=0.55; dpi=200; compound=true; newrank=true;
+  node [fontname="Helvetica", fontsize=10.5, shape=box, style="rounded,filled", margin="0.13,0.08"];
+  edge [fontname="Helvetica", fontsize=9, color="#444444"];
+  subgraph cluster_a { label="A. Named pipe (FIFO): satu produsen, satu konsumen"; labeljust=l; fontname="Helvetica"; fontsize=11; style="rounded,dashed"; color="#888888";
+    a1 [label="sensor_pipe.py\n(produsen)", fillcolor="#D5E8D4"];
+    a2 [label="/tmp/kebun_fifo\npenyangga pipe di kernel", shape=cylinder, style="filled", fillcolor="#FFF2CC"];
+    a3 [label="logger_pipe.py\n(konsumen)", fillcolor="#DAE8FC"];
+    a4 [label="log_pipe.txt", shape=note, style="filled", fillcolor="#F5F5F5"];
+    a1 -> a2 [label=" write()"]; a2 -> a3 [label=" read()"]; a3 -> a4;
+  }
+  subgraph cluster_b { label="B. Message queue: banyak produsen, satu konsumen"; labeljust=l; fontname="Helvetica"; fontsize=11; style="rounded,dashed"; color="#888888";
+    b1 [label="proses sensor\nN01, N02, N03", fillcolor="#D5E8D4"];
+    b2 [label="mp.Queue\n(antrean pesan,\nlewat pipe di kernel)", shape=cylinder, style="filled", fillcolor="#FFF2CC"];
+    b3 [label="proses logger", fillcolor="#DAE8FC"];
+    b4 [label="log_queue.txt", shape=note, style="filled", fillcolor="#F5F5F5"];
+    b1 -> b2 [label=" put()"]; b2 -> b3 [label=" get()"]; b3 -> b4;
+  }
+  subgraph cluster_c { label="C. Publish-subscribe (MQTT): penerbit dan pelanggan tidak saling kenal"; labeljust=l; fontname="Helvetica"; fontsize=11; style="rounded,dashed"; color="#888888";
+    c1 [label="sensor_mqtt.py\n(penerbit)", fillcolor="#D5E8D4"];
+    c2 [label="Mosquitto (broker)\nport 1883\ntopik kebun/#", shape=hexagon, style="filled", fillcolor="#FFE6CC"];
+    c3 [label="logger_mqtt.py\n(pelanggan 1)", fillcolor="#DAE8FC"];
+    c5 [label="mosquitto_sub\n(pelanggan 2)", fillcolor="#DAE8FC"];
+    c4 [label="log_mqtt.txt", shape=note, style="filled", fillcolor="#F5F5F5"];
+    c1 -> c2 [label=" publish\n kebun/N01/suhu"]; c2 -> c3 [label=" subscribe"]; c2 -> c5 [label=" subscribe"]; c3 -> c4;
+  }
+}
