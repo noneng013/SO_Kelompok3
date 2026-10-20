@@ -1,0 +1,10 @@
+2026-10-19 09:34:43 mqtt kebun/N01/suhu 29.7
+2026-10-19 09:34:43 mqtt kebun/N01/tanah 22.8
+2026-10-19 09:34:44 mqtt kebun/N01/suhu 24.6
+2026-10-19 09:34:44 mqtt kebun/N01/tanah 32.9
+2026-10-19 09:34:45 mqtt kebun/N01/suhu 28.4
+2026-10-19 09:34:45 mqtt kebun/N01/tanah 22.9
+2026-10-19 09:34:46 mqtt kebun/N01/suhu 28.0
+2026-10-19 09:34:46 mqtt kebun/N01/tanah 59.0
+2026-10-19 09:34:48 mqtt kebun/N01/suhu 30.1
+2026-10-19 09:34:48 mqtt kebun/N01/tanah 25.6
