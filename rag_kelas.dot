@@ -1,0 +1,32 @@
+digraph RAG {
+  rankdir=LR;
+  node [fontname="Helvetica"];
+  P0 [shape=circle, style=filled, fillcolor="#D5E8D4"];
+  P1 [shape=circle, style=filled, fillcolor="#D5E8D4"];
+  P2 [shape=circle, style=filled, fillcolor="#D5E8D4"];
+  P3 [shape=circle, style=filled, fillcolor="#D5E8D4"];
+  P4 [shape=circle, style=filled, fillcolor="#D5E8D4"];
+  R0 [shape=box, style=filled, fillcolor="#DAE8FC", label="A\n(total 7)"];
+  R1 [shape=box, style=filled, fillcolor="#DAE8FC", label="B\n(total 3)"];
+  R2 [shape=box, style=filled, fillcolor="#DAE8FC", label="C\n(total 5)"];
+  P0 -> R0 [style=dashed, label="butuh 7"];
+  R1 -> P0 [label="alokasi 1"];
+  P0 -> R1 [style=dashed, label="butuh 4"];
+  P0 -> R2 [style=dashed, label="butuh 3"];
+  R0 -> P1 [label="alokasi 2"];
+  P1 -> R0 [style=dashed, label="butuh 1"];
+  P1 -> R1 [style=dashed, label="butuh 2"];
+  P1 -> R2 [style=dashed, label="butuh 2"];
+  R0 -> P2 [label="alokasi 3"];
+  P2 -> R0 [style=dashed, label="butuh 6"];
+  R2 -> P2 [label="alokasi 2"];
+  R0 -> P3 [label="alokasi 2"];
+  R1 -> P3 [label="alokasi 1"];
+  P3 -> R1 [style=dashed, label="butuh 1"];
+  R2 -> P3 [label="alokasi 1"];
+  P3 -> R2 [style=dashed, label="butuh 1"];
+  P4 -> R0 [style=dashed, label="butuh 4"];
+  P4 -> R1 [style=dashed, label="butuh 3"];
+  R2 -> P4 [label="alokasi 2"];
+  P4 -> R2 [style=dashed, label="butuh 1"];
+}
