@@ -1,0 +1,10 @@
+Algoritma                      WT    TAT     RT  Pindah
+(Gantt dan rincian per proses: lihat Tabel 6.2 sampai 6.8)
+FCFS                       LULUS
+SJF (non-preemptive)       LULUS
+SRTF (preemptive)          LULUS
+Priority (non-preemptive)  LULUS
+Priority (preemptive)      LULUS
+Round Robin q=2            LULUS
+Round Robin q=3            LULUS
+Ringkasan: 7 dari 7 algoritma sesuai dengan perhitungan manual
